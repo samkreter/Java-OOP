@@ -1,0 +1,43 @@
+package sakfy6.cs3330.lab4;
+
+
+
+
+
+public class Car {
+
+	private String make;
+	private String type;
+	private String color;
+	
+	public Car(String make, String, type, String color){
+		
+	}
+	
+	private void setMake(String make){
+		
+	}
+	
+	private void setType(String type){
+		
+	}
+	
+	private void setColor(String color){
+		
+	}
+	
+	public String getMake(){
+		
+	}
+	
+	public String getType(){
+		
+	}
+	
+	public String getColor(){
+		
+	}
+	
+	
+	
+}

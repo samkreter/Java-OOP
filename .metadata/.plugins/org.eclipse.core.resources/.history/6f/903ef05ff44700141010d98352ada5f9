@@ -1,0 +1,20 @@
+/**
+ * 
+ */
+package sakfy6.cs3330.lab4;
+
+/**
+ * @author sakfy6
+ *
+ */
+public class LabFourDriver {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

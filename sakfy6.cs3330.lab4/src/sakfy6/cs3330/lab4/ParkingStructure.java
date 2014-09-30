@@ -9,19 +9,42 @@ public class ParkingStructure {
 	
 	
 	public ParkingStructure(int numberOfLevels){
-		
+		setLevels(numberOfLevels);
 	}
 	
 	private void setLevels(int numberOfLevels){
-		
+		levels = new ArrayList<Level>();
+		if(numberOfLevels > 0){
+			for(int i = 0;i<numberOfLevels;i++){
+				levels.add(new Level(10));
+			}
+			
+		}
+		else{
+			levels.add(new Level(10));
+			levels.add(new Level(10));
+		}  
 	}
 	
 	public boolean isFull(){
-		
+		for(Level i : levels){
+			if(!i.isFull()){
+				return false;
+			}
+		}
+		return true;
 	}
 	
 	public int addCar(Car incomingCar){
-		
+		int levelNumber = 0;
+		for(Level i : levels){
+			levelNumber++;
+			if(!i.isFull()){
+				i.addCar(incomingCar);
+				return levelNumber;
+			}
+		}
+		return 0;
 	}
 	
 	

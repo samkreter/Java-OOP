@@ -17,11 +17,11 @@ public class LabFourDriver {
 	 * @param args
 	 */
 	
-	private Scanner userInput;
-	private Random randomGenerator;
-	private ArrayList<String> carMakes;
-	private ArrayList<String> carTypes;
-	private ArrayList<String> carColor;
+	private static Scanner userInput;
+	private static Random randomGenerator;
+	private static ArrayList<String> carMakes;
+	private static ArrayList<String> carTypes;
+	private static ArrayList<String> carColors;
 	
 	public static void main(String[] args) {
 		initAttributes();
@@ -35,19 +35,47 @@ public class LabFourDriver {
 		while (!parkingStructure.isFull()) {
 			Car incomingCar = createCar();
 			System.out.println(incomingCar.getMake()
-					+ " " + incomingCar.getModel() + " " + incomingCar.getColor());
+					+ " " + incomingCar.getType() + " " + incomingCar.getColor());
 			int storageLevel = parkingStructure.addCar(incomingCar);
 			System.out.println("Car Stored at level " + storageLevel);
 			System.out.println(" ");
 		}
 	}
 	
-	private void initAttributes(){
+	private static void initAttributes(){
+		randomGenerator = new Random(1337);
+		userInput = new Scanner(System.in);
+		
+		carMakes = new ArrayList<String>();
+		carMakes.add("Ford");
+		carMakes.add("Toyota");
+		carMakes.add("Dodge");
+		carMakes.add("Honda");
+		
+		carTypes = new ArrayList<String>();
+		carTypes.add("Sedan");
+		carTypes.add("Truck");
+		carTypes.add("Van");
+		carTypes.add("Hatcback");
+		
+		carColors = new ArrayList<String>();
+		carColors.add("Blue");
+		carColors.add("Green"); 
+		carColors.add("Red");
+		carColors.add("Purple");
+		carColors.add("Orange");
+		carColors.add("Yellow");
+		
+		
 		
 	}
 	
-	private Car createCar(){
+	private static Car createCar(){
+		String make = carMakes.get(randomGenerator.nextInt(carMakes.size()));
+		String type = carTypes.get(randomGenerator.nextInt(carTypes.size()));
+		String color = carColors.get(randomGenerator.nextInt(carColors.size()));
 		
+		return new Car(make,type,color);
 	}
 	
 	

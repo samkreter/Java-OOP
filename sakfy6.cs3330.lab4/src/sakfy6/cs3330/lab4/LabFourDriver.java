@@ -1,6 +1,10 @@
-/**
- * 
- */
+/*
+ * Sam Kreter 
+ * sakfy6
+ * Lab C 
+ * quincy 
+ * */
+
 package sakfy6.cs3330.lab4;
 
 import java.util.Scanner;
@@ -21,8 +25,14 @@ public class LabFourDriver {
 	private static Random randomGenerator;
 	private static ArrayList<String> carMakes;
 	private static ArrayList<String> carTypes;
+	/**
+	 * 
+	 */
 	private static ArrayList<String> carColors;
 	
+	/**
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		initAttributes();
 		
@@ -42,6 +52,9 @@ public class LabFourDriver {
 		}
 	}
 	
+	/**
+	 * inits all the necessary attributes for the lab 
+	 */
 	private static void initAttributes(){
 		randomGenerator = new Random(1337);
 		userInput = new Scanner(System.in);
@@ -70,6 +83,9 @@ public class LabFourDriver {
 		
 	}
 	
+	/**
+	 * @return a randomly generated car 
+	 */
 	private static Car createCar(){
 		String make = carMakes.get(randomGenerator.nextInt(carMakes.size()));
 		String type = carTypes.get(randomGenerator.nextInt(carTypes.size()));

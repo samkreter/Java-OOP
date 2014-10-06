@@ -1,0 +1,22 @@
+package sakfy6.cs3330.lab5;
+
+public class Ellipse {
+	
+	private double majorAxis;
+	private double minorAxis;
+	
+	
+	public Ellipse(double minorAxis, double majorAxis, String color){
+		
+	} 
+
+	public double calcArea(){
+		
+	} 
+	public double calcPerimeter(){
+		
+	}
+	public String toString(){
+		
+	} 
+}

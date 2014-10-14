@@ -1,0 +1,53 @@
+/**
+name: Sam Kreter
+date: 9/22/2014
+section: C
+Homework 1
+*/
+
+package sakfy6.cs3330.hw2;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+
+
+/**
+ * @author sakfy6
+ *
+ */
+public class GameDataReader {
+
+	
+
+	/*
+	 * empty GameDataReader constructor 
+	 */
+	public GameDataReader() {}
+
+	/**
+	 * @return the array of items that represent the game items 
+	 */
+	public Item[] getGameItems(){
+		
+		String[] splitList = new String[3];
+		Item[] items = new Item[25];
+		File file = new File("GameData/GameItems.csv");
+		 try {
+			 Scanner sc = new Scanner(file);
+			 for(int i = 0; i < items.length; i++){
+				 if(sc.hasNextLine()){
+					 splitList = sc.nextLine().split(","); 
+					 items[i] = new Item(splitList[0],Integer.parseInt(splitList[1]),Integer.parseInt(splitList[2]));
+				 }
+			 }
+			 sc.close();
+		 } 
+		 catch (FileNotFoundException e) {
+			 e.printStackTrace();
+		 }
+		 
+		 return items;
+	}
+}

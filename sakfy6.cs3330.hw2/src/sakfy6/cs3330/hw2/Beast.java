@@ -5,31 +5,38 @@ public class Beast {
 	private String name;
 	private Health health;
 	
-	Beast(String name, int hp){
+	public Beast(String name, int hp){
 		setName(name);
 		createHealth(hp);
-		
 	} 
 	
-	void setName(String name){
+	public void setName(String name){
 		this.name = name;
 	}
 	
-	void createHealth(int hp){
-		
+	public void createHealth(int hp){
+		health = new Health(hp);
 	}
 	
-	String getName(){
+	public String getName(){
 		return this.name;
 	}
 	
-	int getHealth(){
+	public int getHealth(){
 		return health.getHealthPoints();
 	}
 	
-	boolean injured(item : Item){
-		r
+	public boolean injured(Item item){
+		if(item != null){
+			health.hit(item.getValue());
+			return true;
+		}
+		else{
+			return false;
+		}
 	}
 	
-	boolean isLiving()
+	public boolean isLiving(){
+		return health.getAlive();
+	}
 }

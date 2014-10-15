@@ -16,26 +16,56 @@ public class Human {
 	}
 	
 
-	public void createHealth(hp : int)
+	public void createHealth(int hp){
+		this.health = new Health(hp);
+	}
 	
-	public void initBag(emptyBag : Bag)
+	public void initBag(Bag emptyBag){
+		this.bag = emptyBag;
+		bag.addItem( new Item("Crowbar",30,5));
+	}
 	
-	public void initCommandProcessor()
+	public void initCommandProcessor(){
+		this.commandProcessor = new CommandProcessor();
+	}
 	
-	public String getName()
+	public String getName(){
+		return this.name;
+	}
 	
-	public Health getHealth()
+	public Health getHealth(){
+		return this.health;
+	}
 	
-	public Bag getBag()
+	public Bag getBag(){
+		return this.bag;
+	}
 	
-	public boolean isLiving()
+	public boolean isLiving(){
+		return health.getAlive();
+	}
 		 
-    public boolean pickup(item : Item)
+    public boolean pickup(Item item){
+    	this.bag.addItem(item);
+    }
     
-    public boolean drop(item : Item)
+    public boolean drop(Item item){
+    	return bag.dropItem(item);
+    }
     
-    public boolean attack(beast : Beast, item : Item)
+    public boolean attack(Beast beast, Item item){
+    	return beast.injured(item);
+    }
     
-    public HumanResponse processCommand(commands : String, beast : Beast, item : Item) 
+    public HumanResponse processCommand(String commands, Beast beast, Item item){
+    	String response = "";
+    	boolean validAction = true;
+    	String[] splitCommands = commands.split(",");
+    	
+    	if(!commandProcessor.validateUserCommand(splitCommands[0])){
+    		return new HumanResponse("Invalid game command", false);
+    	}
+    	
+    } 
 }
 

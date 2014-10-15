@@ -1,5 +1,8 @@
 package sakfy6.cs3330.hw2;
 
+import java.util.ArrayList;
+import java.lang.StringBuffer;
+
 public class Human {
 	
 	private String name;
@@ -46,7 +49,12 @@ public class Human {
 	}
 		 
     public boolean pickup(Item item){
-    	this.bag.addItem(item);
+    	if(this.bag.addItem(item)){
+    		return true;
+    	}
+    	else{
+    		return false;
+    	}
     }
     
     public boolean drop(Item item){
@@ -65,6 +73,54 @@ public class Human {
     	if(!commandProcessor.validateUserCommand(splitCommands[0])){
     		return new HumanResponse("Invalid game command", false);
     	}
+    	switch(splitCommands[0]){
+    	
+    	case "attack":
+    		if(splitCommands[2].equals("with") && splitCommands.length >= 4){
+    			if(splitCommands[1].equals(beast.getName()) && beast.isLiving()){
+    				if(!this.attack(beast,bag.getItem(splitCommands[3]))){
+    					response = "Not a valid weapon";
+    					validAction = false;
+    				}
+    			}
+    		}
+    		break;
+    	case "pickup":
+    		if(this.pickup(item)){
+    			response = "Item added successfully";
+    		}
+    		else{
+    			response = "tem not added successfully";
+    			validAction = false;
+    		}
+    		break;
+    	case "drop":
+    		if(splitCommands.length >= 2){
+    			if(this.drop(bag.getItem(splitCommands[1]))){
+    				response = "Item successfully dropped";
+    			}
+    			else{
+    				response = "Item not successfully added";
+    				validAction = false;
+    			}
+    		}
+    		else{
+    			response = "Item not successfully added";
+    			validAction = false;
+    		}
+    	
+    		break;
+    	case "help":
+    		StringBuffer buffer = new StringBuffer();
+    		ArrayList<String> list = new ArrayList<String>();
+    		list = commandProcessor.getCommands();
+    		for(String i : list){
+    			buffer.append(i+"\n");
+    		}
+    	}
+    	
+    	return new HumanResponse(response,validAction);
+    	
     	
     } 
 }

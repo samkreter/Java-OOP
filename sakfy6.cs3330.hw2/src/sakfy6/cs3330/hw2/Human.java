@@ -7,31 +7,35 @@ public class Human {
 	private Health health;
 	private CommandProcessor commandProcessor;
 
-	Human(name : String, hp : int, emptyBag : Bag) 
+	Human(String name, int hp, Bag emptyBag){
+		
+	} 
 	
-	void setName(name: String)
+	public void setName(String name){
+		this.name = name;
+	}
 	
 
-	void createHealth(hp : int)
+	public void createHealth(hp : int)
 	
-	void initBag(emptyBag : Bag)
+	public void initBag(emptyBag : Bag)
 	
-	void initCommandProcessor()
+	public void initCommandProcessor()
 	
-	String getName()
+	public String getName()
 	
-	Health getHealth()
+	public Health getHealth()
 	
-	Bag getBag()
+	public Bag getBag()
 	
-	boolean isLiving()
+	public boolean isLiving()
 		 
-    boolean pickup(item : Item)
+    public boolean pickup(item : Item)
     
-    boolean drop(item : Item)
+    public boolean drop(item : Item)
     
-    boolean attack(beast : Beast, item : Item)
+    public boolean attack(beast : Beast, item : Item)
     
-    HumanResponse processCommand(commands : String, beast : Beast, item : Item) 
+    public HumanResponse processCommand(commands : String, beast : Beast, item : Item) 
 }
 

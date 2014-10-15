@@ -6,34 +6,34 @@ public class Health {
 	private int healthPoints;
 	private boolean alive;
 	
-	public Health(){
+	Health(){
 		setHealth(100);
 		setAlive(true);
 	}
 	
-	public Health(int hp){
+	Health(int hp){
 		setHealth(hp);
 		setAlive(true);
 		
 	}
 	
-	public void setHealth(int hp){
+	void setHealth(int hp){
 		this.healthPoints = hp;
 	}
 	
-	public void setAlive(boolean alive){
+	void setAlive(boolean alive){
 		this.alive = alive;
 	}
 	
-	public int getHealthPoints(){
+	int getHealthPoints(){
 		return this.healthPoints;
 	}
 	
-	public boolean getAlive(){
+	boolean getAlive(){
 		return this.alive;
 	}
 	
-	public void hit(int hitPoints){
+	void hit(int hitPoints){
 		setHealth(this.healthPoints - hitPoints);
 	}
 }

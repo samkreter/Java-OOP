@@ -11,19 +11,19 @@ public class HumanResponse {
 		setResponse(response);
 	} 
 	
-	public void setValidAction(boolean validAction){
+	void setValidAction(boolean validAction){
 		this.validAction = validAction;
 	}
 	
-	public void setResponse (String response){
+	void setResponse (String response){
 		this.response = response;
 	}
 	
-	public boolean getValidAction(){
+	boolean getValidAction(){
 		return this.validAction;
 	}
 	
-	public String getResponse(){
+	String getResponse(){
 		return this.response;
 	}
 

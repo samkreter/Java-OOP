@@ -1,9 +1,10 @@
 /**
-name: Sam Kreter
-date: 9/22/2014
-section: C
-Homework 1
-*/
+ * Sam Kreter
+ * Sakfy6
+ * LAB C
+ * 10/16/14
+ * hw2
+ */
 
 
 package sakfy6.cs3330.hw2;

@@ -1,3 +1,11 @@
+/**
+ * Sam Kreter
+ * Sakfy6
+ * LAB C
+ * 10/16/14
+ * hw2
+ */
+
 package sakfy6.cs3330.hw2;
 
 import java.util.ArrayList;
@@ -10,48 +18,89 @@ public class Human {
 	private Health health;
 	private CommandProcessor commandProcessor;
 
+	/**
+	 * constructor for the human setup 
+	 * @param name
+	 * @param hp
+	 * @param emptyBag
+	 */
 	Human(String name, int hp, Bag emptyBag){
 		setName(name);
 		createHealth(hp);
 		initBag(emptyBag);
 		initCommandProcessor();
-		System.out.println("starting the human"); //////////////////////////////////////////////////////
 	} 
 	
+	/**
+	 * setter
+	 * @param name
+	 */
 	public void setName(String name){
 		this.name = name;
 	}
 	
 
+	/**
+	 * creates the health object 
+	 * @param hp
+	 */
 	public void createHealth(int hp){
 		this.health = new Health(hp);
 	}
 	
+	/**
+	 * initilizes the bag
+	 * @param emptyBag
+	 */
 	public void initBag(Bag emptyBag){
 		this.bag = emptyBag;
 		bag.addItem( new Item("Crowbar",30,5));
 	}
 	
+	/**
+	 * sets up the command processor 
+	 */
 	public void initCommandProcessor(){
 		this.commandProcessor = new CommandProcessor();
 	}
 	
+	/**
+	 * getter
+	 * @return
+	 */
 	public String getName(){
 		return this.name;
 	}
 	
+	/**
+	 * getter
+	 * @return
+	 */
 	public Health getHealth(){
 		return this.health;
 	}
 	
+	/**
+	 * getter
+	 * @return
+	 */
 	public Bag getBag(){
 		return this.bag;
 	}
 	
+	/**
+	 * getter for the alive member
+	 * @return
+	 */
 	public boolean isLiving(){
 		return health.getAlive();
 	}
 		 
+    /**
+     * picks up an item 
+     * @param item
+     * @return
+     */
     public boolean pickup(Item item){
     	if(this.bag.addItem(item)){
     		return true;
@@ -61,14 +110,32 @@ public class Human {
     	}
     }
     
+    /**
+     * drops an item 
+     * @param item
+     * @return
+     */
     public boolean drop(Item item){
     	return bag.dropItem(item);
     }
     
+    /**
+     * attacks the beasts past in 
+     * @param beast
+     * @param item
+     * @return
+     */
     public boolean attack(Beast beast, Item item){
     	return beast.injured(item);
     }
     
+    /**
+     * chekcs the commands 
+     * @param commands
+     * @param beast
+     * @param item
+     * @return
+     */
     public HumanResponse processCommand(String commands, Beast beast, Item item){
     	String response = "";
     	boolean validAction = true;

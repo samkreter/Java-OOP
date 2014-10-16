@@ -1,3 +1,11 @@
+/**
+ * Sam Kreter
+ * Sakfy6
+ * LAB C
+ * 10/16/14
+ * hw2
+ */
+
 package sakfy6.cs3330.hw2;
 
 import java.util.Scanner;
@@ -140,7 +148,10 @@ public class RoomEscape {
 	 
 	 }
 	 
-	 private static void initGameData(){
+	 /**
+	 * inits all the game data 
+	 */
+	private static void initGameData(){
 		 userInput = new Scanner(System.in);
 		 randomGenerator = new Random(1337);
 		 GameDataReader datareader = new GameDataReader();
@@ -148,14 +159,21 @@ public class RoomEscape {
 		 gameBeasts = datareader.getGameBeasts("GameData/GameBeasts.csv");
 	 }
 	 
-	 private static void initCurrentRoomBeasts (){
+	 /**
+	 * sets up the Current room beasts 
+	 */
+	private static void initCurrentRoomBeasts (){
 		 currentRoomBeasts = new ArrayList<Beast>(); 
 		 for(Beast i : gameBeasts){
 			 currentRoomBeasts.add(new Beast(i.getName(),i.getHealth()));
 		 }
 	 }
 	 
-	 private static Item findItem(){
+	 /**
+	  * finds an item to pick up 
+	 * @return
+	 */
+	private static Item findItem(){
 			int itemindex = randomGenerator.nextInt(gameItems.size());
 		 	int loopNum = randomGenerator.nextInt(4) + 1;
 			int i=0;
@@ -167,7 +185,11 @@ public class RoomEscape {
 			return gameItems.get(itemindex);
 	 } 
 	
-	 private static Beast findEnemy(){
+	 /**
+	  * finds an enemy to attack 
+	 * @return
+	 */
+	private static Beast findEnemy(){
 		int itemindex = randomGenerator.nextInt(gameBeasts.size());
 		int loopNum = randomGenerator.nextInt(4) + 1;
 		int i=0;

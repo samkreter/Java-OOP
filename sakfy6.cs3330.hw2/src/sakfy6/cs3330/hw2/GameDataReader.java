@@ -1,9 +1,10 @@
 /**
-name: Sam Kreter
-date: 9/22/2014
-section: C
-Homework 1
-*/
+ * Sam Kreter
+ * Sakfy6
+ * LAB C
+ * 10/16/14
+ * hw2
+ */
 
 package sakfy6.cs3330.hw2;
 
@@ -28,6 +29,7 @@ public class GameDataReader {
 	public GameDataReader() {}
 
 	/**
+	 * @param filePath
 	 * @return the array of items that represent the game items 
 	 */
 	public ArrayList<Item> getGameItems(String filePath){
@@ -50,6 +52,11 @@ public class GameDataReader {
 		 return items;
 	}
 	
+	/**
+	 * returns the game commands form the file 
+	 * @param filePath
+	 * @return
+	 */
 	public ArrayList<String> getGameCommands(String filePath){
 		ArrayList<String> list = new ArrayList<String>();
 		File file = new File(filePath);
@@ -66,6 +73,11 @@ public class GameDataReader {
 		return list;
 	} 
 	
+	/**
+	 * returns the beasts in the game 
+	 * @param filePath
+	 * @return
+	 */
 	public ArrayList<Beast> getGameBeasts(String filePath){
 		ArrayList<Beast> list = new ArrayList<Beast>();
 		String[] splitList = new String[2];

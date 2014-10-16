@@ -74,12 +74,12 @@ public class Human {
     	boolean validAction = true;
     	String[] splitCommands = commands.split(",");
     	
-    	System.out.println(commands);
+    	System.out.println(splitCommands.length);
     	
     	switch(splitCommands[0]){
     	
     	case "attack":
-    		if(splitCommands.length >= 4 && splitCommands[2].equals("with")){
+    		if(splitCommands[2].equals("with") && splitCommands.length >= 4){
     			if(splitCommands[1].equals(beast.getName()) && beast.isLiving()){
     				if(!this.attack(beast,bag.getItem(splitCommands[3]))){
     					response = "Not a valid weapon";

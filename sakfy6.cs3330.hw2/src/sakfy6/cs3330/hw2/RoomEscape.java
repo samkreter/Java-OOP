@@ -160,7 +160,7 @@ public class RoomEscape {
 			int itemindex = randomGenerator.nextInt(gameItems.size());
 			int i=0;
 			for(i=0; i<loopNum; i++){
-				System.out.println("Scavenging area for an Item...");
+				System.out.println("Searching Area...");
 			}
 			
 			
@@ -180,6 +180,7 @@ public class RoomEscape {
 		 
 	 }
 	 
+	
 
 }
 

@@ -11,7 +11,9 @@ public class Human {
 	private CommandProcessor commandProcessor;
 
 	Human(String name, int hp, Bag emptyBag){
-		
+		setName(name);
+		createHealth(hp);
+		initBag(emptyBag);
 	} 
 	
 	public void setName(String name){
@@ -70,9 +72,6 @@ public class Human {
     	boolean validAction = true;
     	String[] splitCommands = commands.split(",");
     	
-    	if(!commandProcessor.validateUserCommand(splitCommands[0])){
-    		return new HumanResponse("Invalid game command", false);
-    	}
     	switch(splitCommands[0]){
     	
     	case "attack":
@@ -90,7 +89,7 @@ public class Human {
     			response = "Item added successfully";
     		}
     		else{
-    			response = "tem not added successfully";
+    			response = "Item not added successfully";
     			validAction = false;
     		}
     		break;
@@ -117,6 +116,10 @@ public class Human {
     		for(String i : list){
     			buffer.append(i+"\n");
     		}
+    		break;
+    	default:
+    		response = "Invalid game command";
+    		validAction = false;
     	}
     	
     	return new HumanResponse(response,validAction);

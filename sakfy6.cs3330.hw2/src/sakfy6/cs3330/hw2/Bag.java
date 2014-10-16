@@ -36,12 +36,15 @@ public class Bag {
 	}
 	
 	boolean addItem(Item item){
-		if(item.getWeight()+this.weight < 20){
+		System.out.println(this.weight);
+		if((item.getWeight()+this.weight) < 20){
 			this.items.add(item);
 			this.weight = weight + item.getWeight();
+			System.out.println("inside the right");
 			return true;
 		}
 		else{
+			System.out.println("in the wrong");
 			return false;
 		}
 		

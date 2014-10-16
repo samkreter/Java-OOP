@@ -115,10 +115,9 @@ public class Human {
     		StringBuffer buffer = new StringBuffer();
     		ArrayList<String> list = new ArrayList<String>();
     		list = commandProcessor.getCommands();
-    		for(String i : list){
+    		for(String i : list){/////////////////////////////////////////////////////////////////////
     			buffer.append(i+"\n");
     		}
-    		response = buffer.toString();
     		break;
     	default:
     		response = "Invalid game command";

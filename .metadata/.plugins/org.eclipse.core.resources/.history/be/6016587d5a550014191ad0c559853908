@@ -15,7 +15,6 @@ public class Human {
 		createHealth(hp);
 		initBag(emptyBag);
 		initCommandProcessor();
-		System.out.println("starting the human"); //////////////////////////////////////////////////////
 	} 
 	
 	public void setName(String name){
@@ -118,7 +117,6 @@ public class Human {
     		for(String i : list){
     			buffer.append(i+"\n");
     		}
-    		response = buffer.toString();
     		break;
     	default:
     		response = "Invalid game command";

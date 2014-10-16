@@ -18,7 +18,7 @@ public class Bag {
 	
 	Item getItem(String name){
 		for(Item i : items){
-			if(name.toLowerCase().equals(i.getName().toLowerCase())){
+			if(name.equals(i.getName())){
 				return i;
 			}
 			

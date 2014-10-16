@@ -1,4 +1,0 @@
-pickup
-drop
-attack
-help

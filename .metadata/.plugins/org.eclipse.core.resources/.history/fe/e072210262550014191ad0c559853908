@@ -72,7 +72,7 @@ public class Human {
     public HumanResponse processCommand(String commands, Beast beast, Item item){
     	String response = "";
     	boolean validAction = true;
-    	String[] splitCommands = commands.split(" ");
+    	String[] splitCommands = commands.split(",");
     	
     	System.out.println(commands);
     	
@@ -103,7 +103,7 @@ public class Human {
     				response = "Item successfully dropped";
     			}
     			else{
-    				response = "Item not successfully dropped";
+    				response = "Item not successfully added";
     				validAction = false;
     			}
     		}

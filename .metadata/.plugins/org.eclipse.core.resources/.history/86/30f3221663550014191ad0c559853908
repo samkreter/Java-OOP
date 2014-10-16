@@ -99,7 +99,7 @@ public class Human {
     		break;
     	case "drop":
     		if(splitCommands.length >= 2){
-    			if(this.drop(bag.getItem(splitCommands[1]))){
+    			if(this.drop(bag.getItem(splitCommands[1].toLowerCase()))){
     				response = "Item successfully dropped";
     			}
     			else{

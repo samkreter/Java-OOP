@@ -168,8 +168,8 @@ public class RoomEscape {
 	 } 
 	
 	 private static Beast findEnemy(){
-		int itemindex = randomGenerator.nextInt(gameBeasts.size());
 		int loopNum = randomGenerator.nextInt(4) + 1;
+		int itemindex = randomGenerator.nextInt(gameBeasts.size());
 		int i=0;
 		for(i=0; i<loopNum; i++){
 			System.out.println("Scavenging area for an Item...");

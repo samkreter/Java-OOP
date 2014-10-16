@@ -35,8 +35,5 @@ public class Health {
 	
 	public void hit(int hitPoints){
 		setHealth(this.healthPoints - hitPoints);
-		if(this.healthPoints <= 0){
-			this.alive = false;
-		}
 	}
 }

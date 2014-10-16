@@ -16,6 +16,9 @@ public class RoomEscape {
 	
 	public static void main(String[] args) {
 		 initGameData();
+		 for(Item i : gameItems){
+			 System.out.println(i.getName());
+		 }
          System.out.print("Enter Character Name: ");
          String name = userInput.nextLine();
          System.out.print("Enter number of levels: ");
@@ -156,8 +159,8 @@ public class RoomEscape {
 	 }
 	 
 	 private static Item findItem(){
+			int loopNum = randomGenerator.nextInt(4) + 1;
 			int itemindex = randomGenerator.nextInt(gameItems.size());
-		 	int loopNum = randomGenerator.nextInt(3) + 1;
 			int i=0;
 			for(i=0; i<loopNum; i++){
 				System.out.println("Searching Area...");
@@ -168,7 +171,7 @@ public class RoomEscape {
 	 } 
 	
 	 private static Beast findEnemy(){
-		int loopNum = randomGenerator.nextInt(3) + 1;
+		int loopNum = randomGenerator.nextInt(4) + 1;
 		int itemindex = randomGenerator.nextInt(gameBeasts.size());
 		int i=0;
 		for(i=0; i<loopNum; i++){

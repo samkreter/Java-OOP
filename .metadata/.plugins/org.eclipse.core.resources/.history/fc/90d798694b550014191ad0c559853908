@@ -14,8 +14,8 @@ public class CommandProcessor {
 	public void setGameCommands(){
 		GameDataReader gameReader = new GameDataReader();
 		commands = gameReader.getGameCommands("GameData/Commands.txt");
-		for(String i: commands){
-			System.out.println("commands: "+i);
+		for(String i : commands){
+			System.out.println(i+" ");
 		}
 	}
 	

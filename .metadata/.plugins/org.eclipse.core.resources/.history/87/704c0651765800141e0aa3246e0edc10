@@ -1,0 +1,17 @@
+package sakfy6.cs3330.lab6;
+
+public class Overseer {
+	private String sector;
+	
+	public Overseer(String, String, String){
+		
+	}
+	
+	public String getSector(){
+		
+	}
+	
+	protected void setSector(String){
+		
+	}
+}

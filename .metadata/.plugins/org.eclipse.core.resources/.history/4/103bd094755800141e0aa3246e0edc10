@@ -1,0 +1,21 @@
+package sakfy6.cs3330.lab6;
+
+import java.util.TreeMap;
+
+public class GoonDatabase {
+	public GoonDatabase(String x){
+		
+	}
+	
+	public void searchMenu(){
+		
+	}
+	
+	protected void importFile(String x){
+		
+	}
+	
+	protected TreeMap searchDatabase(String x){
+		
+	}
+}

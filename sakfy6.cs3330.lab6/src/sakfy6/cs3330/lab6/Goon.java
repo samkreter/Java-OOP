@@ -1,0 +1,28 @@
+package sakfy6.cs3330.lab6;
+
+public class Goon {
+
+	private String name;
+	private String DOB;
+	
+	public Goon(String name, String DOB){
+		setName(name);
+		setDOB(DOB);
+	}
+	
+	public String getName(){
+		return this.name;
+	}
+	
+	protected void setName(String name){
+		this.name = name;
+	}
+	
+	public String getDOB(){
+		return this.DOB;
+	}
+	
+	protected void setDOB(String DOB){
+		this.DOB = DOB;
+	}
+}

@@ -28,24 +28,14 @@ public class GoonDatabase {
 	
 	protected void importFile(String filePath){
 
-		String[] splitList = new String[5];
+		String[] splitList = new String[4];
 		goonDB = new TreeMap();
 		File file = new File(filePath);
 		 try {
 			 Scanner sc = new Scanner(file);
 			 while(sc.hasNextLine()){
 				 splitList = sc.nextLine().split(","); 
-				 switch(splitList[0]){
-				 case: "Don":
-					 goonDB.put(splitList[1],new Don(splitList[1],splitList[2],splitList[3],Integer.parseInt(splitList[4])));
-				 	break;
-				 case "Talent":
-					 goonDB.put(splitList[1], new Talent(splitList[1],splitList[2],splitList[3]));
-					 break;
-				 case "Overseer":
-					 goonDB.put(splitList[1],new Overseer(splitList[1],splitList[2],splitList[3]));
-				 }
-				 
+				 goonDB.put(splitList[1],new)
 			 }
 			 sc.close();
 		 } 

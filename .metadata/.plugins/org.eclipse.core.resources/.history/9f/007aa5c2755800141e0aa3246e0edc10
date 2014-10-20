@@ -1,0 +1,17 @@
+package sakfy6.cs3330.lab6;
+
+public class Talent {
+	private String skill;
+	
+	public Talent(String, String, String){
+		
+	}
+	
+	public String getsKill(){
+		
+	}
+	
+	protected void setSkeill(String){
+		
+	}
+}

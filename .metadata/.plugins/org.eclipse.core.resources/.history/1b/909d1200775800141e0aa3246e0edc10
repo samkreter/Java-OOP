@@ -1,0 +1,26 @@
+package sakfy6.cs3330.lab6;
+
+public class Don {
+	private String mobName;
+	private int netWorth;
+	
+	public Don(String, String, int){
+		
+	}
+	
+	public int getNetWorth(){
+		
+	}
+	
+	protected void setNetWorth(int){
+		
+	}
+	
+	public String getMobName(){
+		
+	}
+	
+	protected void setMobName(String mobName){
+		
+	}
+}

@@ -1,13 +1,8 @@
-/*
- * Sam Kreter
- * 10/20/2014
- * LAB C
- * Royals
- */
 package sakfy6.cs3330.lab6;
 
 import java.util.Map;
 import java.util.TreeMap;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -18,18 +13,10 @@ public class GoonDatabase {
 	
 	private TreeMap<String,Goon> goonDB;
 	
-	/**
-	 * constructor for the goonDatabase
-	 * 
-	 * @param filePath
-	 */
 	public GoonDatabase(String filePath){
 		importFile(filePath);
 	}
 	
-	/**
-	 * gives a menu to the users and implements the searching 
-	 */
 	public void searchMenu(){
 		Scanner inputScanner = new Scanner(System.in);
 		String input;
@@ -61,11 +48,6 @@ public class GoonDatabase {
 		inputScanner.close();
 	}
 	
-	/**
-	 * loads the goonDB from a file past in 
-	 * 
-	 * @param filePath
-	 */
 	protected void importFile(String filePath){
 
 		String[] splitList = new String[5];
@@ -95,12 +77,6 @@ public class GoonDatabase {
 		
 	}
 	
-	/**
-	 * searches the database for the pasted in query 
-	 * 
-	 * @param query
-	 * @return
-	 */
 	protected TreeMap<String,Goon> searchDatabase(String query){
 		TreeMap<String,Goon> temp = new TreeMap<String,Goon>();
 		

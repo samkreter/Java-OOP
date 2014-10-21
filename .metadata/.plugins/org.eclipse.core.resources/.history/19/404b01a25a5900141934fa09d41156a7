@@ -1,0 +1,10 @@
+package sakfy6.cs3330.lab6;
+
+public class DatabaseDriver {
+
+	public static void main(String[] args) {
+		GoonDatabase GoonDB = new GoonDatabase("Data/Goons.csv");
+		GoonDB.searchMenu();
+	}
+
+}

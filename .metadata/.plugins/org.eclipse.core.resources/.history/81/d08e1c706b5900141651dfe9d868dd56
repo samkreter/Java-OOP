@@ -103,14 +103,9 @@ public class GoonDatabase {
 	 */
 	protected TreeMap<String,Goon> searchDatabase(String query){
 		TreeMap<String,Goon> temp = new TreeMap<String,Goon>();
-		String[] split;
 		
 		for(Map.Entry<String,Goon> i : goonDB.entrySet()){
-			split = i.getKey().split(",");
-			if(split[0].toLowerCase().equals(query.toLowerCase())){
-				temp.put(i.getKey(),i.getValue());
-			}
-			if(split[1].toLowerCase().equals(query.toLowerCase())){
+			if(i.getKey().toLowerCase().contains(query.toLowerCase())){
 				temp.put(i.getKey(),i.getValue());
 			}
 		}

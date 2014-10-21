@@ -84,13 +84,13 @@ public class GoonDatabase {
 				return temp;
 			}
 			if(i instanceof Don && query.toLowerCase().equals("don")){
-				temp.add(i);
+				temp.add(new Goon(i.getName(),i.getDOB()));
 			}
 			if(i instanceof Overseer && query.toLowerCase().equals("overseer")){
-				temp.add(i);
+				temp.add(new Goon(i.getName(),i.getDOB()));
 			}
 			if(i instanceof Talent && query.toLowerCase().equals("talent")){
-				temp.add(i);
+				temp.add(new Goon(i.getName(),i.getDOB()));
 			}
 		}
 		return temp;

@@ -9,7 +9,7 @@ import java.io.FileNotFoundException;
 
 public class GoonDatabase {
 	
-	private TreeMap<String,Goon> goonDB;
+	private TreeMap goonDB;
 	
 	public GoonDatabase(String filePath){
 		importFile(filePath);
@@ -29,14 +29,14 @@ public class GoonDatabase {
 	protected void importFile(String filePath){
 
 		String[] splitList = new String[5];
-		goonDB = new TreeMap<String,Goon>();
+		goonDB = new TreeMap();
 		File file = new File(filePath);
 		 try {
 			 Scanner sc = new Scanner(file);
 			 while(sc.hasNextLine()){
 				 splitList = sc.nextLine().split(","); 
 				 switch(splitList[0]){
-				 case "Don":
+				 case: "Don":
 					 goonDB.put(splitList[1],new Don(splitList[1],splitList[2],splitList[3],Integer.parseInt(splitList[4])));
 				 	break;
 				 case "Talent":
@@ -55,14 +55,7 @@ public class GoonDatabase {
 		
 	}
 	
-	protected TreeMap<String,Goon> searchDatabase(String query){
-		TreeMap<String,Goon> temp = new TreeMap<String,Goon>();
-		Goon tempGoon;
-		if(goonDB.containsKey(query)){
-			temp.put(goonDB.get(query).getName(),new Goon(goonDB.get(query).getName(),goonDB.get(query).getDOB()));
-			return temp;
-		}
-		for(Goon)
+	protected TreeMap searchDatabase(String x){
 		
 	}
 }

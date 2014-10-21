@@ -57,12 +57,7 @@ public class GoonDatabase {
 	
 	protected TreeMap<String,Goon> searchDatabase(String query){
 		TreeMap<String,Goon> temp = new TreeMap<String,Goon>();
-		Goon tempGoon;
-		if(goonDB.containsKey(query)){
-			temp.put(goonDB.get(query).getName(),new Goon(goonDB.get(query).getName(),goonDB.get(query).getDOB()));
-			return temp;
-		}
-		for(Goon)
+		
 		
 	}
 }

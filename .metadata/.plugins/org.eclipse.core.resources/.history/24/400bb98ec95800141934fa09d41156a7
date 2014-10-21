@@ -18,30 +18,14 @@ public class GoonDatabase {
 	public void searchMenu(){
 		Scanner inputScanner = new Scanner(System.in);
 		String input;
-		ArrayList<Goon> temp;
-		int count = 0;
-
 		
 		System.out.println("Please enter your query (q to exit): ");
 		input = inputScanner.nextLine();
 		
 		while(!input.equals("q")){
-			count = 1;
-			temp = searchDatabase(input);
-			if(temp.size() != 0){
-				System.out.println("Results:");
-				for(Goon i : temp){
-					System.out.println(count+" - "+i.getName());
-					count++;
-				}
-			}
-			else{
-				System.out.println("No results found ...");
-			}
 			System.out.println("Please enter your query (q to exit): ");
 			input = inputScanner.nextLine();
 		}
-		System.out.println("Program Complete.");
 		
 		inputScanner.close();
 	}

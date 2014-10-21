@@ -781,3 +781,89 @@ java.lang.IllegalArgumentException: Cannot set lower sequence number for root (p
 	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1110)
 	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:51)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.jobs 4 2 2014-10-20 21:14:28.296
+!MESSAGE An internal error occurred during: "Periodic workspace save.".
+!STACK 0
+java.lang.IllegalArgumentException: Cannot set lower sequence number for root (previous: 4, new: 3). Location: /home/kreter/workspace/Java-OOP/.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources
+	at org.eclipse.core.runtime.Assert.isLegal(Assert.java:63)
+	at org.eclipse.core.internal.resources.SaveManager.validateMasterTableBeforeSave(SaveManager.java:1566)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1229)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1221)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1198)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1110)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:51)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.jface 2 0 2014-10-20 21:15:04.404
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2014-10-20 21:15:04.404
+!MESSAGE A conflict occurred for CTRL+D:
+Binding(CTRL+D,
+	ParameterizedCommand(Command(org.eclipse.debug.ui.commands.eof,EOF,
+		Send end of file,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@6232728a,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.debug.ui.console,,,system)
+Binding(CTRL+D,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.delete.line,Delete Line,
+		Delete a line of text,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@5dfdf463,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+
+!ENTRY org.eclipse.core.jobs 4 2 2014-10-20 21:19:31.225
+!MESSAGE An internal error occurred during: "Periodic workspace save.".
+!STACK 0
+java.lang.IllegalArgumentException: Cannot set lower sequence number for root (previous: 4, new: 3). Location: /home/kreter/workspace/Java-OOP/.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources
+	at org.eclipse.core.runtime.Assert.isLegal(Assert.java:63)
+	at org.eclipse.core.internal.resources.SaveManager.validateMasterTableBeforeSave(SaveManager.java:1566)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1229)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1221)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1198)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1110)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:51)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.jobs 4 2 2014-10-20 22:31:11.672
+!MESSAGE An internal error occurred during: "Periodic workspace save.".
+!STACK 0
+java.lang.IllegalArgumentException: Cannot set lower sequence number for root (previous: 4, new: 3). Location: /home/kreter/workspace/Java-OOP/.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources
+	at org.eclipse.core.runtime.Assert.isLegal(Assert.java:63)
+	at org.eclipse.core.internal.resources.SaveManager.validateMasterTableBeforeSave(SaveManager.java:1566)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1229)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1221)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1198)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1110)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:51)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.jobs 4 2 2014-10-20 22:39:42.676
+!MESSAGE An internal error occurred during: "Periodic workspace save.".
+!STACK 0
+java.lang.IllegalArgumentException: Cannot set lower sequence number for root (previous: 4, new: 3). Location: /home/kreter/workspace/Java-OOP/.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources
+	at org.eclipse.core.runtime.Assert.isLegal(Assert.java:63)
+	at org.eclipse.core.internal.resources.SaveManager.validateMasterTableBeforeSave(SaveManager.java:1566)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1229)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1221)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1198)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1110)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:51)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.jobs 4 2 2014-10-20 22:46:59.608
+!MESSAGE An internal error occurred during: "Periodic workspace save.".
+!STACK 0
+java.lang.IllegalArgumentException: Cannot set lower sequence number for root (previous: 4, new: 3). Location: /home/kreter/workspace/Java-OOP/.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources
+	at org.eclipse.core.runtime.Assert.isLegal(Assert.java:63)
+	at org.eclipse.core.internal.resources.SaveManager.validateMasterTableBeforeSave(SaveManager.java:1566)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1229)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1221)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1198)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1110)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:51)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)

@@ -27,6 +27,8 @@ public class GoonDatabase {
 		
 		while(!input.equals("q")){
 			count = 1;
+			System.out.println("Please enter your query (q to exit): ");
+			input = inputScanner.nextLine();
 			temp = searchDatabase(input);
 			if(temp.size() != 0){
 				System.out.println("Results:");
@@ -38,10 +40,7 @@ public class GoonDatabase {
 			else{
 				System.out.println("No results found ...");
 			}
-			System.out.println("Please enter your query (q to exit): ");
-			input = inputScanner.nextLine();
 		}
-		System.out.println("Program Complete.");
 		
 		inputScanner.close();
 	}

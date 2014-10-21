@@ -41,7 +41,6 @@ public class GoonDatabase {
 			System.out.println("Please enter your query (q to exit): ");
 			input = inputScanner.nextLine();
 		}
-		System.out.println("Program Complete.");
 		
 		inputScanner.close();
 	}

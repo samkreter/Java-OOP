@@ -3,5 +3,10 @@
     "coordinate": "jre:jre:zip:call:1.0.0",
     "location": "C:\\Program Files\\Java\\jre8\\lib\\rt.jar",
     "status": "RESOLVED"
+  },
+  "Z:\\Java-OOP\\sakfy6.cs3330.lab7\\src": {
+    "location": "Z:\\Java-OOP\\sakfy6.cs3330.lab7\\src",
+    "status": "UNRESOLVED",
+    "error": "No class path info available for \u0027Z:\\Java-OOP\\sakfy6.cs3330.lab7\\src\u0027. Skipped."
   }
 }

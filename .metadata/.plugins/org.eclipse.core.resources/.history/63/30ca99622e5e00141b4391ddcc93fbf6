@@ -1,0 +1,23 @@
+package sakfy6.cs3330.lab7;
+
+public class Hawk extends Animal implements Flying{
+
+	
+	public Hawk(String type){
+		super(true,true,type);
+	}
+	public boolean eat(Animal food){
+		if(food instanceof Bat || food instanceof Snake){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	public void takeoff(){
+		System.out.println("The hawk has taken off!");
+	}
+	public void land(){
+		System.out.println("The hawk has landed on the ground");
+	} 
+}

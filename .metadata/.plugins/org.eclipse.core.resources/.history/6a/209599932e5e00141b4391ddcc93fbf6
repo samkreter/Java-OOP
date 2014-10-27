@@ -1,0 +1,21 @@
+package sakfy6.cs3330.lab7;
+
+public class Monkey extends Animal implements NonFlying {
+
+	
+	
+	public Monkey(String type){
+		super(false,true,type);
+	}
+	public boolean eat (Animal food){
+		if(food instanceof Snake){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	public void movement(){
+		System.out.println("The monkey is running on the ground");
+	}
+}

@@ -1,11 +1,7 @@
 package sakfy6.cs3330.lab7;
 
-import java.util.ArrayList;
-
 public class LabSevenDriver {
 
-	
-	
 	public static void main(String[] args) {
 		ArrayList<Animal> animals = new ArrayList<Animal>();
 		animals.add(new Hawk());
@@ -19,15 +15,7 @@ public class LabSevenDriver {
 
 	}
 	
-	private static void findWhoCanFly(ArrayList animals){
-		
-	} 
-	private static void findWhoCantFly(ArrayList animals){
-		
-	}
-	private static void findWhoCanEatWho(ArrayList animals){
-		
-	}
+	findWhoCanFly(animals : ArrayList) 
+	findWhoCantFly(animals : ArrayList)
+	findWhoCanEatWho(animals : ArrayList)
 }
-
-

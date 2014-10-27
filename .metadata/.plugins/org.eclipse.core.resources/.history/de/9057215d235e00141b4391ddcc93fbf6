@@ -8,7 +8,7 @@
  * */
 package sakfy6.cs3330.lab7;
 
-public abstract class Animal {
+public class Animal {
 
 	protected boolean legs;
 	protected boolean wings;
@@ -19,7 +19,7 @@ public abstract class Animal {
 		setWings(wings);
 		setType(type);
 	}
-	abstract boolean eat(Animal food);
+	public abstract boolean  eat(Animal food);
 	
 	public String toString(){
 		
@@ -35,18 +35,6 @@ public abstract class Animal {
 	
 	protected void setType(String type){}{
 		this.type = type;
-	}
-	
-	public boolean getLegs(){
-		return this.legs;
-	}
-	
-	public boolean getWings(){
-		return this.wings;
-	}
-	
-	public String getType(){
-		return this.type;
 	}
 	
 }

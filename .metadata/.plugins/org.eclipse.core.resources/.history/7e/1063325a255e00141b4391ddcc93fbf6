@@ -7,12 +7,7 @@ public class Bat extends Animal implements Flying{
 		super(false,true,type);
 	}
 	public boolean eat(Animal food){
-		if(food instanceof Snake || food instanceof Bat){
-			return true;
-		}
-		else{
-			return false;
-		}
+		
 	}
 	public void  takeOff(){
 		System.out.println("The bat has taken off!");

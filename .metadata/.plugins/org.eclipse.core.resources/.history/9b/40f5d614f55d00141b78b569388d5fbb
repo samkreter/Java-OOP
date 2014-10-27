@@ -1,0 +1,10 @@
+package sakfy6.cs3330.lab7;
+
+public class Bat {
+	
+	
+	Bat(type : String)
+	eat(food : Animal)
+	takeOff() -
+	land()
+}

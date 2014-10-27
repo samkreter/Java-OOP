@@ -1,0 +1,18 @@
+package sakfy6.cs3330.lab7;
+
+public class Animal {
+
+	protected boolean legs;
+	protected boolean wings;
+	protected String type;
+	
+	public Animal(boolean wings,boolean legs, String type){
+		
+	}
+	public boolean eat(Animal food){
+		
+	}
+	public String toString(){
+		
+	} 
+}

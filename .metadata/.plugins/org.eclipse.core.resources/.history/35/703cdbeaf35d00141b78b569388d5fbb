@@ -1,0 +1,9 @@
+package sakfy6.cs3330.lab7;
+
+public class Snake {
+
+	
+	Snake(type : String)
+	eat(food : Animal)
+	movement()
+}

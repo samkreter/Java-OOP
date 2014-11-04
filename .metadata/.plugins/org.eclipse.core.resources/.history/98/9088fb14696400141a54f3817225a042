@@ -1,0 +1,69 @@
+package sakfy6.cs3330.lab8;
+
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Driver {
+	
+	
+	
+	public static void main(String args[]){
+		ArrayList<Person> people = new ArrayList<Person>;
+		String input = "";
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter person info or q to quit.");
+		input = sc.nextLine();
+		while(!input.equals("q")){
+			try{
+				System.out.println("Please enter the name of this person:");
+				input = sc.nextLine();
+				isName(input);
+				
+			}
+			catch(InvalidNameException e){
+				System.out.println(e);
+			}
+			catch(InvalidAgeException e){
+				System.out.println(e);
+			}
+			catch(InvalidBalanceException e){
+				System.out.println(e);
+			}
+			
+			
+		}
+	}
+	
+	public static void isValidAge(String input) throws InvalidAgeException{
+		
+		int number = 0;
+		
+		try{
+				 number = Integer.parseInt(input);
+				 if(number < 0 ){
+					 throw new InvalidAgeException("hello");
+				 }
+			 }
+			 catch (NumberFormatException e){
+				 throw new InvalidAgeException("You did not enter an Integer.");
+			 }
+	}
+	
+	public static void isBalance(String balance) throws InvalidBalanceException{
+		
+	}
+	
+	public static void isName(String name) throws InvalidNameException{
+		char[] chars = name.toCharArray();
+
+	    for (char c : chars) {
+	        if(!Character.isLetter(c)) {
+	            throw new InvalidNameException("You did not enter a name.");
+	        }
+	    }
+	}
+	
+	
+}

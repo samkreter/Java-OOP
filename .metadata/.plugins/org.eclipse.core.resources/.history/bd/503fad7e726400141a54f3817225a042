@@ -1,0 +1,9 @@
+package sakfy6.cs3330.lab8;
+
+public interface IsValidData {
+	
+	abstract void isValidAge();
+	abstract void isName();
+	abstract void isBalance();
+
+}

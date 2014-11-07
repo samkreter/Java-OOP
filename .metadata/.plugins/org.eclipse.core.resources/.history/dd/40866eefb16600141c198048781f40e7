@@ -136,7 +136,7 @@ public class Human {
      * @param item
      * @return
      */
-    public CreatureResponse processCommand(String commands, Beast beast, Item item){
+    public HumanResponse processCommand(String commands, Beast beast, Item item){
     	String response = "";
     	boolean validAction = true;
     	String[] splitCommands = commands.split(" ");
@@ -194,7 +194,7 @@ public class Human {
     		validAction = false;
     	}
     	
-    	return new CreatureResponse(response,validAction);
+    	return new HumanResponse(response,validAction);
     	
     	
     } 

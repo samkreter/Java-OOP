@@ -16,11 +16,60 @@ import java.util.ArrayList;
 public class RoomEscape {
 
 	private static Scanner userInput;
+	private static ArrayList<Item> gameItems;
+	private static ArrayList<Beast> gameBeasts;
+	private static ArrayList<Beast> currentRoomBeasts;
+	private static Human currentPlayer;
 	private static Random randomGenerator;
 	
 	public static void main(String[] args) {
-		 
-	}
+		 initGameData();
+         System.out.print("Enter Character Name: ");
+         String name = userInput.nextLine();
+         System.out.print("Enter number of levels: ");
+         int maxRooms = Integer.parseInt(userInput.nextLine());
+         
+         currentPlayer = new Human(name,100, new Bag());
+         int roomsBeat = 0;
+         
+         while (roomsBeat < maxRooms) {
+                 /*
+                  * Create room bad guys and items
+                  */
+                 System.out.println("Entering Room " + (roomsBeat + 1));
+                 System.out.println(" ");
+                 initCurrentRoomBeasts();
+                 int creaturesDestroyed = 0;
+                 
+                 while (currentPlayer.isLiving() && creaturesDestroyed < 2) {
+                         int encounterProb = randomGenerator.nextInt(100);
+                         Item foundItem = null;
+                         Beast foundEnemy = null;
+                         /*
+                          * 60 percent chance of being a Beast.
+                          */
+                         if (encounterProb <= 40) {
+                                 foundItem = findItem();
+                                 System.out.println("You have discovered the item " + foundItem.getName());
+                                 while (noBattle(foundItem)); 
+                                 
+                         }
+                         else {
+                                 foundEnemy = findEnemy();
+                                 System.out.println("You have encountered a(n) " + foundEnemy.getName());
+                                 if (battle (foundEnemy)) {
+                                         creaturesDestroyed++;
+                                 }
+                                 else {
+                                         System.out.println("You are dead!");
+                                         return;
+                                 }
+                         }
+                 }
+                 roomsBeat++;
+         }
+         System.out.println("You have beat RoomEscape!");
+ }
  
 	 /**
 	  * Allows the current player to engage in combat with the incoming beast. The player uses 
@@ -29,7 +78,7 @@ public class RoomEscape {
 	  * @param battlingBeast The found beast the player has encountered
 	  * @return Whether the currentPlayer is dead being false or alive being true.
 	  */
-	 private static int battle (Beast battlingBeast) {
+	 private static boolean battle (Beast battlingBeast) {
 	         
 	         while (currentPlayer.isLiving()) {
 	                 displayBagContents();
@@ -39,7 +88,7 @@ public class RoomEscape {
 	                 System.out.println(" ");
 	                 
 	                 attackString += input;
-	                 CreatureResponse response = currentPlayer.processCommand(attackString, battlingBeast,null);
+	                 HumanResponse response = currentPlayer.processCommand(attackString, battlingBeast,null);
 	                 if (!response.getValidAction()) {
 	                         System.out.println(response.getResponse());
 	                 }
@@ -85,7 +134,7 @@ public class RoomEscape {
 	         if (input.isEmpty()) {
 	                 return false;
 	         }
-	         CreatureResponse response = currentPlayer.processCommand(input, null,foundItem);
+	         HumanResponse response = currentPlayer.processCommand(input, null,foundItem);
 	         while (!response.getValidAction()) {
 	                 System.out.print(response.getResponse() + ", Try Again: ");
 	                 input = userInput.nextLine();

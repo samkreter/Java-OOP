@@ -24,6 +24,7 @@ public abstract class Item {
 	private int weight;
 	
 	
+	
 	/**
 	 * constructor that uses the mutators 
 	 * 

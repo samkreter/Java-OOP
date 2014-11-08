@@ -17,6 +17,10 @@ public class RoomEscape {
 
 	private static Scanner userInput;
 	private static Random randomGenerator;
+	private static ArrayList<Item> gameItems;
+	private static ArrayList<Beast> gameBeasts;
+	private static ArrayList<Beast> currentRoomBeasts;
+	private static Human currentPlayer;
 	
 	public static void main(String[] args) {
 		 

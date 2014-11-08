@@ -101,4 +101,13 @@ public class Bag {
 		
 	}
 	
+	public void dropItems(){
+		items.clear();
+		this.weight = 0;
+	}
+	
+	public Item getItem(int itemIdx){
+		return this.items.get(itemIdx);
+	}
+	
 }

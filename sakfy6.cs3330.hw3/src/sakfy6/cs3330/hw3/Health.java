@@ -76,4 +76,8 @@ public class Health {
 			this.alive = false;
 		}
 	}
+	
+	public void heal(int healPoints){
+		this.healthPoints = healthPoints + healPoints;
+	}
 }

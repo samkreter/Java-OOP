@@ -10,28 +10,25 @@
 package sakfy6.cs3330.hw3;
 
 
-public class Beast {
+public class Beast extends GameCreature {
 
-	private String name;
-	private Health health;
+	private String type;
 	
 	/**
 	 * constructor
 	 * @param name
 	 * @param hp
 	 */
-	public Beast(String name, int hp){
-		setName(name);
-		createHealth(hp);
+	public Beast(String type, String name, int hp, Bag emptyBag){
+		super(name,hp,emptyBag);
 	} 
 	
-	/**
-	 * setter
-	 * 
-	 * @param name
-	 */
-	public void setName(String name){
-		this.name = name;
+	private void setType(type){
+		this.type = type;
+	}
+	
+	public String getType(){
+		return this.type;
 	}
 	
 	/**
@@ -43,14 +40,7 @@ public class Beast {
 		health = new Health(hp);
 	}
 	
-	/**
-	 * getter
-	 * 
-	 * @return
-	 */
-	public String getName(){
-		return this.name;
-	}
+
 	
 	/**
 	 * getter

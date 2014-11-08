@@ -40,16 +40,8 @@ public class GameDataReader {
 		 try {
 			 Scanner sc = new Scanner(file);
 			 while(sc.hasNextLine()){
-				 splitList = sc.nextLine().split("[,\\s]+");
-				 if(splitList.length != 5){
-					 System.out.println("error in lenght for getGameItems");
-				 }
-				 if(splitList[0].equals("weapon")){
-					 items.add(new Weapon(splitList[2],splitList[1],Integer.parseInt(splitList[3]),Integer.parseInt(splitList[4])));
-				 }
-				 else{
-					 items.add(new Healer(splitList[2],splitList[1],Integer.parseInt(splitList[3]),Integer.parseInt(splitList[4])));
-				 }
+				 splitList = sc.nextLine().split(","); 
+				 items.add(new Item(splitList[0],Integer.parseInt(splitList[1]),Integer.parseInt(splitList[2])));
 			 }
 			 sc.close();
 		 } 
@@ -88,20 +80,13 @@ public class GameDataReader {
 	 */
 	public ArrayList<Beast> getGameBeasts(String filePath){
 		ArrayList<Beast> list = new ArrayList<Beast>();
-		String[] splitList;
-		Item tempItem;
-		Bag tempBag;
+		String[] splitList = new String[2];
 		File file = new File(filePath);
 		 try {
 			 Scanner sc = new Scanner(file);
 			 while(sc.hasNextLine()){
-				 splitList = sc.nextLine().split("[,\\s]+");
-				 if(splitList.length == 7){
-					 tempBag = new Bag();
-					 tempItem = new Weapon(splitList[4],splitList[3],Integer.parseInt(splitList[5]),Integer.parseInt(splitList[6]));
-					 tempBag.addItem(tempItem);
-					 list.add(new Beast(splitList[0],splitList[1],Integer.parseInt(splitList[2]),tempBag));
-				 }
+				 splitList = sc.nextLine().split(","); 
+				 list.add(new Beast(splitList[0],Integer.parseInt(splitList[1])));
 			 }
 			 sc.close();
 		 } 

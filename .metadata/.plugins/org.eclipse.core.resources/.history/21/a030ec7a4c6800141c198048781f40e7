@@ -33,20 +33,13 @@ public class Beast extends GameCreature {
 	
 
 	public boolean attack(GameCreature creature, Item weapon){
-		if(weapon instanceof Weapon){
-			creature.injured(((Weapon)weapon).getPoints());
-			return true;
-		}
-		return false; 
+		creature.injured(((Weapon)weapon).getPoints());
+		return true; //////////////////////////////////////////
 	}
 	
 	public boolean heal(Item healer){
-		if(healer instanceof Healer){
-			health.heal(healer.getPoints());
-			return true;
-		}
-		return false;
-		
+		health.heal(healer.getPoints());
+		return true; ////////////////////////////////////////////////////////
 	}
 	
 	   public boolean pickup(Item item){

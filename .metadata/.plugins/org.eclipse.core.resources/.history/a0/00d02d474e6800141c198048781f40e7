@@ -57,27 +57,6 @@ public abstract class GameCreature implements Creature{
     	
     	switch(splitCommands[0]){
     	
-    	case "runaway":
-    		
-    		break;
-    	case "heal":
-    		if(creature.heal(item)){
-    			response = "Healed correctly"; ///////////////////////////////////////////////////
-    			validAction = true;
-    		}
-    		else{
-    			validAction = false;
-    			response = "not healed correctly";//////////////////////////////////////////
-    		}
-    		if(creature.drop(item)){
-    			validAction = true;
-    			response = "droped correctly in the heal command";////////////////////////////////////////
-    		}
-    		else{
-    			validAction = false;
-    			response = "not dropped correcctly in the heal command";/////////////////////////////////////
-    		}
-    		break;
     	case "attack":
     		if(splitCommands.length >= 4 && splitCommands[2].equals("with")){
     			if(splitCommands[1].equals(creature.getName()) && creature.isLiving()){

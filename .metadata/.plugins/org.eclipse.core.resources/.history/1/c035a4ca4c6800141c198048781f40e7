@@ -41,12 +41,8 @@ public class Beast extends GameCreature {
 	}
 	
 	public boolean heal(Item healer){
-		if(healer instanceof Healer){
-			health.heal(healer.getPoints());
-			return true;
-		}
-		return false;
-		
+		health.heal(healer.getPoints());
+		return true; ////////////////////////////////////////////////////////
 	}
 	
 	   public boolean pickup(Item item){

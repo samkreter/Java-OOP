@@ -33,7 +33,6 @@ public class RoomEscape {
          String name = userInput.nextLine();
          System.out.print("Enter number of levels: ");
          int maxRooms = Integer.parseInt(userInput.nextLine());
-         int battleResult = 0;
          
          currentPlayer = new Human(name,100, new Bag());
          int roomsBeat = 0;
@@ -63,15 +62,13 @@ public class RoomEscape {
                          else {
                                  foundEnemy = findEnemy();
                                  System.out.println("You have encountered a(n) " + foundEnemy.getName());
-                                 battleResult = battle(foundEnemy);
-                                 if (battleResult == 1){
+                                 if (battle (foundEnemy)){
                                          creaturesDestroyed++;
                                  }
-                                 else if(battleResult == 0){
+                                 else {
                                          System.out.println("You are dead!");
                                          return;
                                  }
-                                 else if()
                          }
                  }
                  roomsBeat++;
@@ -94,31 +91,22 @@ public class RoomEscape {
 	                 System.out.print(attackString);
 	                 String input = userInput.nextLine();
 	                 System.out.println(" ");
-	                 CreatureResponse response;
 	                 
-	                 if(input.equals("runaway")){
-	                	 response = currentPlayer.processCommand(input,battlingBeast,null);
-	                	 if (!response.getValidAction()) {
-	                         System.out.println(response.getResponse());
-	                	 }else{
-	                		 return 2;
-	                	 }
-	                 }
 	                 attackString += input;
-	                 response = currentPlayer.processCommand(attackString, battlingBeast,null);
+	                 CreatureResponse response = currentPlayer.processCommand(attackString, battlingBeast,null);
 	                 if (!response.getValidAction()) {
 	                         System.out.println(response.getResponse());
 	                 }
 	                 if (currentPlayer.isLiving() && !battlingBeast.isLiving()) {
 	                         System.out.println(battlingBeast.getName() + " is killed");
 	                         System.out.println(" ");
-	                         return 2;
+	                         return true;
 	                 }
 	                 else {
-	                         System.out.println(battlingBeast.getName() + " HP: " + battlingBeast.currentHealthPoints());
+	                         System.out.println(battlingBeast.getName() + " HP: " + battlingBeast.getHealth());
 	                 }
 	         }
-	         return 0;
+	         return false;
 	 }
 	
 	

@@ -67,11 +67,10 @@ public class RoomEscape {
                                  if (battleResult == 1){
                                          creaturesDestroyed++;
                                  }
-                                 else if(battleResult == 0){
+                                 else if(battleResult == 2){
                                          System.out.println("You are dead!");
                                          return;
                                  }
-                                 else if()
                          }
                  }
                  roomsBeat++;
@@ -94,18 +93,13 @@ public class RoomEscape {
 	                 System.out.print(attackString);
 	                 String input = userInput.nextLine();
 	                 System.out.println(" ");
-	                 CreatureResponse response;
 	                 
 	                 if(input.equals("runaway")){
-	                	 response = currentPlayer.processCommand(input,battlingBeast,null);
-	                	 if (!response.getValidAction()) {
-	                         System.out.println(response.getResponse());
-	                	 }else{
-	                		 return 2;
-	                	 }
+	                	 currentPlayer.processCommand(input,battlingBeast,null);
+	                	 return 2;
 	                 }
 	                 attackString += input;
-	                 response = currentPlayer.processCommand(attackString, battlingBeast,null);
+	                 CreatureResponse response = currentPlayer.processCommand(attackString, battlingBeast,null);
 	                 if (!response.getValidAction()) {
 	                         System.out.println(response.getResponse());
 	                 }
@@ -115,7 +109,7 @@ public class RoomEscape {
 	                         return 2;
 	                 }
 	                 else {
-	                         System.out.println(battlingBeast.getName() + " HP: " + battlingBeast.currentHealthPoints());
+	                         System.out.println(battlingBeast.getName() + " HP: " + battlingBeast.getHealth());
 	                 }
 	         }
 	         return 0;

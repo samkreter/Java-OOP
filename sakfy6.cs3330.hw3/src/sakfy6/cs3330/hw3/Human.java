@@ -23,6 +23,7 @@ public class Human extends GameCreature{
 	 */
 	Human(String name, int hp, Bag emptyBag){
 		super(name,hp,emptyBag);
+		bag.addItem(new Weapon("Crowbar","Standard", -30, 5));
 	} 
 	
 
@@ -53,8 +54,12 @@ public class Human extends GameCreature{
     }
     
     public boolean attack(GameCreature creature, Item item){
-    	creature.injured(((Weapon)item).getPoints());
-    	return true; ////////////////////////////////////////////
+    	
+    	if(item instanceof Weapon){
+    		creature.injured(((Weapon)item).getPoints()*2);
+    		return true;
+    	}
+    	return false; 
     }
     
     
@@ -63,8 +68,14 @@ public class Human extends GameCreature{
     }
     
     public boolean heal(Item item){
-    	health.heal(item.getPoints());
-    	return true;	////////////////////////////////////////////////////////////////
+    	if(item == null){
+    		return false;
+    	}
+    	if(item instanceof Healer){
+    		health.heal(item.getPoints());
+    		return true;
+    	}
+    	return false;
     }
 }
 

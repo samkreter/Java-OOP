@@ -53,29 +53,26 @@ public abstract class GameCreature implements Creature{
     	boolean validAction = true;
     	String[] splitCommands = commands.split(" ");
     	
-    	System.out.println(commands);
-    	
     	switch(splitCommands[0]){
     	
     	case "runaway":
-    		
+    		creature.dropAll();
+    		validAction = true;
+    		response = "fled and dropped all items";
     		break;
     	case "heal":
-    		if(creature.heal(item)){
-    			response = "Healed correctly"; ///////////////////////////////////////////////////
+    		if(splitCommands.length < 3){
+    			validAction = false;
+    			response = "Not in valid format";
+    		}
+    		if(creature.heal(bag.getItem(splitCommands[2]))){
+    			response = "Item successfully used for healing";
     			validAction = true;
+    			creature.drop(bag.getItem(splitCommands[2]));
     		}
     		else{
     			validAction = false;
-    			response = "not healed correctly";//////////////////////////////////////////
-    		}
-    		if(creature.drop(item)){
-    			validAction = true;
-    			response = "droped correctly in the heal command";////////////////////////////////////////
-    		}
-    		else{
-    			validAction = false;
-    			response = "not dropped correcctly in the heal command";/////////////////////////////////////
+    			response = "Item not successuflly used for healing";
     		}
     		break;
     	case "attack":
@@ -98,7 +95,7 @@ public abstract class GameCreature implements Creature{
     		}
     		break;
     	case "drop":
-    		if(splitCommands.length >= 2){
+    		if(splitCommands.length == 2){
     			if(this.drop(bag.getItem(splitCommands[1]))){
     				response = "Item successfully dropped";
     			}
@@ -107,8 +104,25 @@ public abstract class GameCreature implements Creature{
     				validAction = false;
     			}
     		}
+    		else if(splitCommands.length == 3){
+    			  try { 
+    				  int index = Integer.parseInt(splitCommands[2]);
+					  if(bag.getItem(index).getName().toLowerCase().equals(splitCommands[1].toLowerCase())){
+						  this.drop(bag.getItem(index));
+						  validAction = true;
+						  response = "Item successfully dropped";
+					  }
+					  else{
+						  validAction = false;
+						  response = "Item not successfully dropped";
+					  }
+    			    } catch(NumberFormatException e) { 
+    			        response = "Item not successfully dropped";
+    			    	validAction = false; 
+    			    }
+    		}
     		else{
-    			response = "Item not successfully added";
+    			response = "Item not successfully dropped";
     			validAction = false;
     		}
     	

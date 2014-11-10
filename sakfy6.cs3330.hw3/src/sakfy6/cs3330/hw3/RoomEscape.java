@@ -12,10 +12,6 @@ import java.util.Scanner;
 import java.util.Random;
 import java.util.ArrayList;
 
-import sakfy6.cs3330.hw2.Bag;
-import sakfy6.cs3330.hw2.Beast;
-import sakfy6.cs3330.hw2.Human;
-import sakfy6.cs3330.hw2.Item;
 
 
 public class RoomEscape {
@@ -34,6 +30,7 @@ public class RoomEscape {
          System.out.print("Enter number of levels: ");
          int maxRooms = Integer.parseInt(userInput.nextLine());
          int battleResult = 0;
+         int runawayCount = 0;
          
          currentPlayer = new Human(name,100, new Bag());
          int roomsBeat = 0;
@@ -56,13 +53,13 @@ public class RoomEscape {
                           */
                          if (encounterProb <= 40) {
                                  foundItem = findItem();
-                                 System.out.println("You have discovered the item " + foundItem.getName());
+                                 System.out.println("You have discovered the item " + foundItem.getLevel()+" "+foundItem.getName());
                                  while (noBattle(foundItem)); 
                                  
                          }
                          else {
                                  foundEnemy = findEnemy();
-                                 System.out.println("You have encountered a(n) " + foundEnemy.getName());
+                                 System.out.println("You have encountered a(n) " + foundEnemy.getType()+" "+foundEnemy.getName());
                                  battleResult = battle(foundEnemy);
                                  if (battleResult == 1){
                                          creaturesDestroyed++;
@@ -71,7 +68,14 @@ public class RoomEscape {
                                          System.out.println("You are dead!");
                                          return;
                                  }
-                                 else if()
+                                 else if(battleResult == 2){
+                                	 if(runawayCount > 5){
+                                		 System.out.println("You are dead!");
+                                		 currentPlayer.injured(1000);
+                                	 }
+                                	 runawayCount++;
+                                	 
+                                 }
                          }
                  }
                  roomsBeat++;
@@ -89,7 +93,8 @@ public class RoomEscape {
 	 private static int battle (Beast battlingBeast) {
 	         
 	         while (currentPlayer.isLiving()) {
-	                 displayBagContents();
+	                 System.out.println("Player Health: "+currentPlayer.currentHealthPoints());
+	        	 	 displayBagContents();
 	                 String attackString = "attack " + battlingBeast.getName() + " with ";
 	                 System.out.print(attackString);
 	                 String input = userInput.nextLine();
@@ -101,6 +106,7 @@ public class RoomEscape {
 	                	 if (!response.getValidAction()) {
 	                         System.out.println(response.getResponse());
 	                	 }else{
+	                		 System.out.println(response.getResponse());
 	                		 return 2;
 	                	 }
 	                 }
@@ -109,14 +115,18 @@ public class RoomEscape {
 	                 if (!response.getValidAction()) {
 	                         System.out.println(response.getResponse());
 	                 }
-	                 if (currentPlayer.isLiving() && !battlingBeast.isLiving()) {
+	                 else if (currentPlayer.isLiving() && !battlingBeast.isLiving()) {
 	                         System.out.println(battlingBeast.getName() + " is killed");
 	                         System.out.println(" ");
 	                         return 2;
 	                 }
 	                 else {
+	                	 	 System.out.println(battlingBeast.getType()+" "+battlingBeast.getName()+" attacked you with "
+	                	 	  +battlingBeast.getBag().getItem(0).getLevel()+" "+ battlingBeast.getBag().getItem(0).getName() );
+	                	 	 battlingBeast.attack(currentPlayer,battlingBeast.getBag().getItem(0));
 	                         System.out.println(battlingBeast.getName() + " HP: " + battlingBeast.currentHealthPoints());
 	                 }
+	         
 	         }
 	         return 0;
 	 }
@@ -128,19 +138,19 @@ public class RoomEscape {
 	  */
 	 private static void displayBagContents () {
 	         System.out.println("Contents of Bag:");
-	         System.out.println("#  Type     Name      Points    Weight");
+	         System.out.println("#    Type     Name      Points    Weight");
 	         Bag playerBag = currentPlayer.getBag();
 	         int count = 0;
 	         String type;
 	         for (Item i : playerBag.getItems()) {
 	        	 count++;
-	        	 if(i instanceof Weapon){
-	        		type = "Weapon";
-	        	 }
-	        	 else{
+	        	 if(i instanceof Healer){
 	        		type = "Healer";
 	        	 }
-	        	 System.out.printf("%d%-10s%s%6d%10d\n",count,type, i.getName(),i.getPoints(),i.getWeight());
+	        	 else{
+	        		type = "Weapon";
+	        	 }
+	        	 System.out.printf("%-5d%-10s%s%6d%10d\n",count,type,i.getLevel()+" "+ i.getName(),i.getPoints(),i.getWeight());
 	         }
 	         System.out.println(" ");
 	 }
@@ -154,17 +164,19 @@ public class RoomEscape {
 	  */
 	 
 	 private static boolean noBattle (Item foundItem) {
-	         displayBagContents();
+	         System.out.println("");
+		 	 System.out.println("Player Health: "+currentPlayer.currentHealthPoints());
+		 	 displayBagContents();
 	         System.out.print("Command: ");
 	         String input = userInput.nextLine();
 	         if (input.isEmpty()) {
 	                 return false;
 	         }
-	         CreatureResponse response = currentPlayer.processCommand(input, null,foundItem);
+	         CreatureResponse response = currentPlayer.processCommand(input, currentPlayer,foundItem);
 	         while (!response.getValidAction()) {
 	                 System.out.print(response.getResponse() + ", Try Again: ");
 	                 input = userInput.nextLine();
-	                 response = currentPlayer.processCommand(input, null,foundItem);                
+	                 response = currentPlayer.processCommand(input, currentPlayer,foundItem);                
 	                 if (input.isEmpty()) {
 	                         return false;
 	                 }
@@ -182,7 +194,7 @@ public class RoomEscape {
 		 randomGenerator = new Random(1337);
 		 GameDataReader datareader = new GameDataReader();
 		 gameItems = datareader.getGameItems("GameData/GameItems.csv");
-		 gameBeasts = datareader.getGameBeasts("GameData/GameBeasts.csv");
+		 gameBeasts = datareader.getGameBeasts("GameData/GameCreatures.csv");
 	 }
 	 
 	 /**
@@ -191,7 +203,8 @@ public class RoomEscape {
 	private static void initCurrentRoomBeasts (){
 		 currentRoomBeasts = new ArrayList<Beast>(); 
 		 for(Beast i : gameBeasts){
-			 currentRoomBeasts.add(new Beast(i.getName(),i.getHealth()));
+			 Bag bag = new Bag();
+			 currentRoomBeasts.add(new Beast(i.getType(),i.getName(),i.currentHealthPoints(),bag));
 		 }
 	 }
 	 

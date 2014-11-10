@@ -44,11 +44,11 @@ public class GameDataReader {
 				 if(splitList.length != 5){
 					 System.out.println("error in lenght for getGameItems");
 				 }
-				 if(splitList[0].equals("weapon")){
-					 items.add(new Weapon(splitList[2],splitList[1],Integer.parseInt(splitList[3]),Integer.parseInt(splitList[4])));
+				 if(splitList[0].equals("Weapon")){
+					 items.add(new Weapon(splitList[2],splitList[1],Integer.parseInt(splitList[4]),Integer.parseInt(splitList[3])));
 				 }
 				 else{
-					 items.add(new Healer(splitList[2],splitList[1],Integer.parseInt(splitList[3]),Integer.parseInt(splitList[4])));
+					 items.add(new Healer(splitList[2],splitList[1],Integer.parseInt(splitList[4]),Integer.parseInt(splitList[3])));
 				 }
 			 }
 			 sc.close();

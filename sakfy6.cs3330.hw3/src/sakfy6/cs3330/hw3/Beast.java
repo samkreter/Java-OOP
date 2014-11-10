@@ -21,6 +21,7 @@ public class Beast extends GameCreature {
 	 */
 	public Beast(String type, String name, int hp, Bag emptyBag){
 		super(name,hp,emptyBag);
+		setType(type);
 	} 
 	
 	private void setType(String type){

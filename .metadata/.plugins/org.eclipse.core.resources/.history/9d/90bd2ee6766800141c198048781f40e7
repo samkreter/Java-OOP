@@ -56,7 +56,7 @@ public abstract class GameCreature implements Creature{
     	switch(splitCommands[0]){
     	
     	case "runaway":
-    		this.dropAll();
+    		creature.dropAll();
     		validAction = true;
     		response = "fled and dropped all items";
     		break;

@@ -1,12 +1,10 @@
-/**
+/*
  * Sam Kreter
- * Sakfy6
- * LAB C
- * 10/16/14
- * hw2
- */
-
-
+ * sakfy6
+ * labc
+ * hw3
+ * 11/9/12
+ * */
 
 package sakfy6.cs3330.hw3;
 
@@ -101,11 +99,19 @@ public class Bag {
 		
 	}
 	
+	/**
+	 * drops all items in the bag
+	 */
 	public void dropItems(){
 		items.clear();
 		this.weight = 0;
 	}
 	
+	/**
+	 * gets an item by the index
+	 * @param itemIdx
+	 * @return
+	 */
 	public Item getItem(int itemIdx){
 		return this.items.get(itemIdx);
 	}

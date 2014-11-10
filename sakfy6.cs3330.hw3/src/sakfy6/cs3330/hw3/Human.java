@@ -1,11 +1,10 @@
-/**
+/*
  * Sam Kreter
- * Sakfy6
- * LAB C
- * 10/16/14
- * hw2
- */
-
+ * sakfy6
+ * labc
+ * hw3
+ * 11/9/12
+ * */
 package sakfy6.cs3330.hw3;
 
 
@@ -53,6 +52,12 @@ public class Human extends GameCreature{
     	return bag.dropItem(item);
     }
     
+    /**
+     * attacks the creature passed in 
+     * 
+     * @param creature 
+     * @param item
+     * */
     public boolean attack(GameCreature creature, Item item){
     	
     	if(item instanceof Weapon){
@@ -62,11 +67,18 @@ public class Human extends GameCreature{
     	return false; 
     }
     
-    
+    /**
+     * 
+     * drops all items 
+     * */
     public void dropAll(){
     	super.bag.dropItems();
     }
     
+    /**
+     * heals based on the item passed in 
+     * @param item
+     * */
     public boolean heal(Item item){
     	if(item == null){
     		return false;

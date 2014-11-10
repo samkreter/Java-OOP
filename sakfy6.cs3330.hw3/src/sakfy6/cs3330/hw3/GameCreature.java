@@ -1,3 +1,11 @@
+/*
+ * Sam Kreter
+ * sakfy6
+ * labc
+ * hw3
+ * 11/9/12
+ * */
+
 package sakfy6.cs3330.hw3;
 
 import java.util.ArrayList;
@@ -10,6 +18,13 @@ public abstract class GameCreature implements Creature{
 	protected Bag bag;
 	private CommandProcessor commandProcessor;
 	
+	/**
+	 * constructor
+	 * 
+	 * @param name
+	 * @param hp
+	 * @param emptyBag
+	 */
 	public GameCreature(String name, int hp, Bag emptyBag){
 		createHealth(hp);
 		setName(name);
@@ -17,10 +32,19 @@ public abstract class GameCreature implements Creature{
 	}
 	
 	
+	/**
+	 * setter
+	 * @param name
+	 */
 	private void setName(String name){
 		this.name = name;
 	}
 	
+	/**
+	 * 
+	 * getter
+	 * @return
+	 */
 	public String getName(){
 		return this.name;
 	}
@@ -48,6 +72,14 @@ public abstract class GameCreature implements Creature{
 		this.commandProcessor = new CommandProcessor();
 	}
 	
+    /**
+     * processes the command passed in 
+     * 
+     * @param commands
+     * @param creature
+     * @param item
+     * 
+     * */
     public CreatureResponse processCommand(String commands, GameCreature creature, Item item){
     	String response = "";
     	boolean validAction = true;
@@ -146,14 +178,27 @@ public abstract class GameCreature implements Creature{
     	
     } 
 	
+	/**
+	 * getter
+	 * @return
+	 */
 	public Bag getBag(){
 		return this.bag;
 	}
 	
+	/**
+	 * injuries with the attack
+	 * @param hp
+	 * */
 	public void injured(int hp){
 		health.hit(hp);
 	}
 	
+	/**
+	 * 
+	 * gets current health points 
+	 * 
+	 * */
 	public int currentHealthPoints(){
 		return this.health.getHealthPoints();
 	}

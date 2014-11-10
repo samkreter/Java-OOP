@@ -1,10 +1,10 @@
-/**
+/*
  * Sam Kreter
- * Sakfy6
- * LAB C
- * 10/16/14
- * hw2
- */
+ * sakfy6
+ * labc
+ * hw3
+ * 11/9/12
+ * */
 
 package sakfy6.cs3330.hw3;
 

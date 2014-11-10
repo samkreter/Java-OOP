@@ -1,3 +1,10 @@
+/*
+ * Sam Kreter
+ * sakfy6
+ * labc
+ * hw3
+ * 11/9/12
+ * */
 package sakfy6.cs3330.hw3;
 
 public interface Creature {

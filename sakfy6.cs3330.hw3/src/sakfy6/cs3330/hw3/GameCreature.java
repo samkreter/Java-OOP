@@ -139,6 +139,7 @@ public abstract class GameCreature implements Creature{
     		else if(splitCommands.length == 3){
     			  try { 
     				  int index = Integer.parseInt(splitCommands[2]);
+    				  index--;
 					  if(bag.getItem(index).getName().toLowerCase().equals(splitCommands[1].toLowerCase())){
 						  this.drop(bag.getItem(index));
 						  validAction = true;

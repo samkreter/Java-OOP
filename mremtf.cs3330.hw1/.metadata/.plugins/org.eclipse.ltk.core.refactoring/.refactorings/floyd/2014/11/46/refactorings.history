@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;floyd.Driver.java&apos; to &apos;FloydWarshall.java&apos;&#x0A;- Original project: &apos;floyd&apos;&#x0A;- Original element: &apos;floyd.Driver.java&apos;&#x0A;- Renamed element: &apos;floyd.FloydWarshall.java&apos;" description="Rename compilation unit &apos;Driver.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;floyd{Driver.java" name="FloydWarshall.java" references="false" stamp="1415663950244" version="1.0"/>
+</session>

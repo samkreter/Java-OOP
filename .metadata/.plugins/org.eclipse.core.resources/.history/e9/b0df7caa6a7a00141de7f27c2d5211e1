@@ -1,0 +1,55 @@
+package sakfy6.cs3330.lab11;
+
+import javax.swing.*;
+import java.util.Formatter;
+
+public class DensityA {
+
+	public static void main(String[] args){
+		
+		Formatter fmt = new Formatter();
+		
+		// a jframe here isn't strictly necessary, but it makes the example a little more real
+		JFrame frame = new JFrame("InputDialog Example #1");
+		
+		// prompt the user to enter their name
+		String alt = JOptionPane.showInputDialog(frame, "Enter the elevation (in feet) of the airport");
+		String oat = JOptionPane.showInputDialog(frame, "Enter the outside air tempeture of the airport (in celcius");
+		String aps = JOptionPane.showInputDialog(frame, "Enter the current air pressure of the airport");
+		String std = JOptionPane.showInputDialog(frame, "Enter the STD take off distance (0 elevation) for your airplane");
+		String runwayLength = JOptionPane.showInputDialog(frame, "Enter the legnth of the runway at the airport");
+		
+		
+		float alts = Float.parseFloat(alt);
+		float oats = Float.parseFloat(oat);
+		float apss = Float.parseFloat(aps);
+		float stds = Float.parseFloat(std);
+		float runway = Float.parseFloat(runwayLength);
+		
+		System.out.println(alts+" "+oats+" "+apss);
+		
+
+		double density = (( oats-(15-( alts *0.002))) * 120)+((( 29.92-apss ) * 1000 ) + alts );
+		
+		double distance = stds + (density/10);
+		
+		fmt.format("%16.2e", density);
+		
+		
+		JOptionPane.showMessageDialog(frame, "The density altitude at this airport is currently "+fmt+"\n"
+				+ "The distance required to takeoff at this density altitude for your airplane is "+distance,"Report",JOptionPane.INFORMATION_MESSAGE);
+		
+		
+		if(distance <= runway){
+			JOptionPane.showMessageDialog(frame, "CLEAR FOR TAKEOFF!!!!","TAKEOFF",JOptionPane.INFORMATION_MESSAGE);
+			
+		}
+		else{
+			JOptionPane.showMessageDialog(frame, "CLEAR FOR TAKEOFF!!!!","TAKEOFF",JOptionPane.WARNING_MESSAGE);
+			
+		}
+		
+		
+
+	}
+}

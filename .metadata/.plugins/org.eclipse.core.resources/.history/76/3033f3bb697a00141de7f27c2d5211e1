@@ -1,0 +1,28 @@
+package sakfy6.cs3330.lab11;
+
+import javax.swing.*;
+
+public class DensityA {
+
+	public static void main(String[] args){
+		
+		// a jframe here isn't strictly necessary, but it makes the example a little more real
+		JFrame frame = new JFrame("InputDialog Example #1");
+		
+		// prompt the user to enter their name
+		String alt = JOptionPane.showInputDialog(frame, "Enter the elevation (in feet) of the airport");
+		String oat = JOptionPane.showInputDialog(frame, "Enter the outside air tempeture of the airport (in celcius");
+		String aps = JOptionPane.showInputDialog(frame, "Enter the current air pressure of the airport");
+		
+		float alts = Float.parseFloat(alt);
+		float oats = Float.parseFloat(oat);
+		float apss = Float.parseFloat(aps);
+		
+		System.out.println(alts+" "+oats+" "+apss);
+		
+
+		
+		
+
+	}
+}
